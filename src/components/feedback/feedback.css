@@ -1,0 +1,18 @@
+.btn {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border-width: 0;
+  background-color: rgb(110, 110, 255);
+  color: white;
+  font-weight: bold;
+  transition: all 250ms cubic-bezier(0.4, 0.1, 0.4, 1);
+  cursor: pointer;
+}
+
+.btn:not(:last-child) {
+  margin-right: 5px;
+}
+
+.btn:hover {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
