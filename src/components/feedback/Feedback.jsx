@@ -11,22 +11,10 @@ class Feedback extends Component {
         neutral: this.props.neutral,
         bad: this.props.bad
     }
-    
-    addGood = () => {
-        this.setState((prevState) => ({
-            good: prevState.good + 1
-        }))
-    }
 
-    addNeutral = () => {
+    addFeedback = event => {
         this.setState((prevState) => ({
-            neutral: prevState.neutral + 1
-        }))
-    }
-
-    addBad = () => {
-        this.setState((prevState) => ({
-            bad: prevState.bad + 1
+            [event.target.name] : prevState[event.target.name] + 1
         }))
     }
 
@@ -43,16 +31,19 @@ class Feedback extends Component {
 
 
     render() {
+
+        const { good, neutral, bad } = this.state;
+
         return (
         <div>
-            <FeedbackOptions addGood={this.addGood} addNeutral={this.addNeutral} addBad={this.addBad}/>
+            <FeedbackOptions addFeedback={this.addFeedback}/>
                 <h3>Statistics</h3>
 
-                {this.state.neutral + this.state.bad + this.state.good > 0
+                {neutral + bad + good > 0
                     ?
-                    <Statistics good={this.state.good}
-                    neutral={this.state.neutral}
-                    bad={this.state.bad}
+                    <Statistics good={good}
+                    neutral={neutral}
+                    bad={bad}
                     total={this.countTotalFeedback()}
                     percentage={this.countPositiveFeedbackPercentage()}
                     />
