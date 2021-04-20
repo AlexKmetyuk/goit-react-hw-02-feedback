@@ -1,5 +1,3 @@
-export default function Notification({title}){
-    return (
-        <p>{title}</p>
-    )
+export default function Notification({ title }) {
+  return <p>{title}</p>;
 }
